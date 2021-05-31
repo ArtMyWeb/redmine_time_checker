@@ -1,0 +1,9 @@
+<b>User:</b> {{ .User }}
+{{ with .Activity }}{{ range . }}
+    <b>Activity:</b> {{ .Activity }}
+    <b>Project:</b> <a href="{{ .ProjectLink }}">{{ .ProjectName }}</a>
+    <b>Issue:</b>{{  if and (eq .IssueID 0) }} - {{ else }} <a href="{{ .IssueLink }}">{{ .IssueID }}</a> {{ end }}
+    <b>Comment:</b> {{ .Comment }}
+    <b>Spent Hours:</b> {{ .SpentHours }}h
+{{ end }}{{ end }}
+<b>Total Hours:</b> {{ .Total }}h
